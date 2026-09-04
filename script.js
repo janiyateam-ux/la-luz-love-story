@@ -201,3 +201,174 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
+/* =========================================================
+   UMUGWANEZA — ROMANTIC BIRTHDAY GATE
+   ========================================================= */
+
+const loveGate = document.getElementById("loveGate");
+const gateIntro = document.getElementById("gateIntro");
+const gateQuestion = document.getElementById("gateQuestion");
+const gateSuccess = document.getElementById("gateSuccess");
+
+const unlockButton = document.getElementById("unlockButton");
+const teaseMessage = document.getElementById("teaseMessage");
+
+const answerFeedback = document.getElementById("answerFeedback");
+const enterButton = document.getElementById("enterButton");
+
+let unlockAttempts = 0;
+let buttonMoving = false;
+
+
+/* PLAYFUL UNLOCK BUTTON */
+
+function moveUnlockButton() {
+
+    const moves = [
+        { x: 55, y: -10 },
+        { x: -50, y: 12 }
+    ];
+
+    const move = moves[Math.min(unlockAttempts - 1, moves.length - 1)];
+
+    unlockButton.style.transform =
+        `translate(${move.x}px, ${move.y}px)`;
+
+    unlockButton.classList.remove("teasing");
+
+    void unlockButton.offsetWidth;
+
+    unlockButton.classList.add("teasing");
+}
+
+
+/* DESKTOP + MOBILE BUTTON TRICK */
+
+if (unlockButton) {
+
+    unlockButton.addEventListener("pointerenter", function () {
+
+        if (unlockAttempts < 2 && !buttonMoving) {
+
+            buttonMoving = true;
+
+            unlockAttempts++;
+
+            moveUnlockButton();
+
+            if (unlockAttempts === 1) {
+
+                teaseMessage.textContent =
+                    "Hehe... not that easy 😏❤️";
+
+            } else {
+
+                teaseMessage.textContent =
+                    "Okay okay... one more try 😂❤️";
+            }
+
+            setTimeout(function () {
+                buttonMoving = false;
+            }, 350);
+        }
+
+    });
+
+
+    unlockButton.addEventListener("click", function () {
+
+        if (unlockAttempts < 2) {
+
+            unlockAttempts++;
+
+            moveUnlockButton();
+
+            teaseMessage.textContent =
+                "Nice try 😏 Try again...";
+
+            return;
+        }
+
+        gateIntro.classList.add("hidden");
+
+        gateQuestion.classList.remove("hidden");
+
+    });
+
+}
+
+
+/* RELATIONSHIP QUESTION */
+
+const answerButtons =
+    document.querySelectorAll(".answer-button");
+
+answerButtons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        const answer = button.dataset.answer;
+
+
+        /* WRONG ANSWER */
+
+        if (answer === "wrong") {
+
+            answerFeedback.textContent =
+                "Hmmmmm... are you sure you're Umugwaneza? 😂❤️ Try again.";
+
+            button.animate(
+                [
+                    { transform: "translateX(-6px)" },
+                    { transform: "translateX(6px)" },
+                    { transform: "translateX(-4px)" },
+                    { transform: "translateX(4px)" },
+                    { transform: "translateX(0)" }
+                ],
+                {
+                    duration: 350,
+                    easing: "ease"
+                }
+            );
+
+            return;
+        }
+
+
+        /* CORRECT ANSWER */
+
+        answerFeedback.textContent =
+            "I knew you'd remember. ❤️";
+
+        setTimeout(function () {
+
+            gateQuestion.classList.add("hidden");
+
+            gateSuccess.classList.remove("hidden");
+
+        }, 700);
+
+    });
+
+});
+
+
+/* ENTER THE SURPRISE */
+
+if (enterButton) {
+
+    enterButton.addEventListener("click", function () {
+
+        loveGate.classList.add("gate-hidden");
+
+        document.body.classList.remove("gate-locked");
+
+        setTimeout(function () {
+
+            loveGate.remove();
+
+        }, 850);
+
+    });
+
+}
