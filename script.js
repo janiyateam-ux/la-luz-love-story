@@ -1,29 +1,159 @@
-/* =========================================
+ /* =========================================
    LA LUZ LOVE STORY
    Website Interactions
 ========================================= */
 
-// Wait until the page has loaded
 document.addEventListener("DOMContentLoaded", () => {
 
+    /* =========================================
+       ROMANTIC BIRTHDAY GATE
+    ========================================= */
+
+    const loveGate = document.getElementById("loveGate");
+    const gateIntro = document.getElementById("gateIntro");
+    const gateQuestion = document.getElementById("gateQuestion");
+    const gateSuccess = document.getElementById("gateSuccess");
+
+    const unlockButton = document.getElementById("unlockButton");
+    const teaseMessage = document.getElementById("teaseMessage");
+
+    const answerFeedback = document.getElementById("answerFeedback");
+    const enterButton = document.getElementById("enterButton");
+
+    let unlockAttempts = 0;
+    let buttonMoving = false;
+
+
     /* -----------------------------------------
-       SMOOTH SCROLLING
+       UNLOCK BUTTON TRICK
     ----------------------------------------- */
 
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
+    function moveUnlockButton() {
 
-        link.addEventListener("click", function (event) {
+        const moves = [
+            { x: 55, y: -10 },
+            { x: -50, y: 12 }
+        ];
 
-            const target = document.querySelector(this.getAttribute("href"));
+        const move =
+            moves[Math.min(unlockAttempts - 1, moves.length - 1)];
 
-            if (target) {
-                event.preventDefault();
+        unlockButton.style.transform =
+            `translate(${move.x}px, ${move.y}px)`;
 
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
+        unlockButton.classList.remove("teasing");
+
+        void unlockButton.offsetWidth;
+
+        unlockButton.classList.add("teasing");
+    }
+
+
+    if (unlockButton) {
+
+        /* Desktop hover */
+        unlockButton.addEventListener("pointerenter", () => {
+
+            if (unlockAttempts < 2 && !buttonMoving) {
+
+                buttonMoving = true;
+
+                unlockAttempts++;
+
+                moveUnlockButton();
+
+                if (unlockAttempts === 1) {
+
+                    teaseMessage.textContent =
+                        "Hehe... not that easy 😏❤️";
+
+                } else {
+
+                    teaseMessage.textContent =
+                        "Okay okay... one more try 😂❤️";
+                }
+
+                setTimeout(() => {
+                    buttonMoving = false;
+                }, 350);
             }
+        });
+
+
+        /* Click */
+        unlockButton.addEventListener("click", () => {
+
+            if (unlockAttempts < 2) {
+
+                unlockAttempts++;
+
+                moveUnlockButton();
+
+                teaseMessage.textContent =
+                    "Nice try 😏 Try again...";
+
+                return;
+            }
+
+            gateIntro.classList.add("hidden");
+            gateQuestion.classList.remove("hidden");
+
+        });
+
+    }
+
+
+    /* -----------------------------------------
+       RELATIONSHIP QUESTION
+    ----------------------------------------- */
+
+    const answerButtons =
+        document.querySelectorAll(".answer-button");
+
+    answerButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const answer = button.dataset.answer;
+
+
+            /* WRONG ANSWER */
+
+            if (answer === "wrong") {
+
+                answerFeedback.textContent =
+                    "Hmmmmm... are you sure you're Umugwaneza? 😂❤️ Try again.";
+
+                button.animate(
+                    [
+                        { transform: "translateX(-6px)" },
+                        { transform: "translateX(6px)" },
+                        { transform: "translateX(-4px)" },
+                        { transform: "translateX(4px)" },
+                        { transform: "translateX(0)" }
+                    ],
+                    {
+                        duration: 350,
+                        easing: "ease"
+                    }
+                );
+
+                return;
+            }
+
+
+            /* CORRECT ANSWER */
+
+            answerFeedback.textContent =
+                "I knew you'd remember. ❤️";
+
+            setTimeout(() => {
+
+                gateQuestion.classList.add("hidden");
+
+                gateSuccess.classList.remove("hidden");
+
+            }, 700);
 
         });
 
@@ -31,8 +161,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* -----------------------------------------
-       SCROLL REVEAL ANIMATION
+       ENTER THE SURPRISE
     ----------------------------------------- */
+
+    if (enterButton) {
+
+        enterButton.addEventListener("click", () => {
+
+            loveGate.classList.add("gate-hidden");
+
+            document.body.classList.remove("gate-locked");
+
+            setTimeout(() => {
+
+                loveGate.remove();
+
+            }, 850);
+
+        });
+
+    }
+
+
+    /* =========================================
+       SMOOTH SCROLLING
+    ========================================= */
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+        link.addEventListener("click", function (event) {
+
+            const target =
+                document.querySelector(this.getAttribute("href"));
+
+            if (target) {
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+
+        });
+
+    });
+
+
+    /* =========================================
+       SCROLL REVEAL ANIMATION
+    ========================================= */
 
     const revealElements = document.querySelectorAll(
         ".story-card, .reason, .timeline-item, .photo-placeholder, .letter"
@@ -46,9 +226,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (entry.isIntersecting) {
 
                     entry.target.style.opacity = "1";
-                    entry.target.style.transform = "translateY(0)";
+
+                    entry.target.style.transform =
+                        "translateY(0)";
 
                     observer.unobserve(entry.target);
+
                 }
 
             });
@@ -63,7 +246,10 @@ document.addEventListener("DOMContentLoaded", () => {
     revealElements.forEach(element => {
 
         element.style.opacity = "0";
-        element.style.transform = "translateY(35px)";
+
+        element.style.transform =
+            "translateY(35px)";
+
         element.style.transition =
             "opacity 0.9s ease, transform 0.9s ease";
 
@@ -72,11 +258,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* -----------------------------------------
-       CREATE FLOATING HEARTS
-    ----------------------------------------- */
+    /* =========================================
+       FLOATING HEARTS
+    ========================================= */
 
-    const heartContainer = document.querySelector(".hearts");
+    const heartContainer =
+        document.querySelector(".hearts");
 
     const heartSymbols = [
         "❤️",
@@ -93,20 +280,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!heartContainer) return;
 
-        const heart = document.createElement("span");
+        const heart =
+            document.createElement("span");
 
         heart.innerHTML =
             heartSymbols[
-                Math.floor(Math.random() * heartSymbols.length)
+                Math.floor(
+                    Math.random() * heartSymbols.length
+                )
             ];
 
         heart.style.position = "absolute";
-        heart.style.left = Math.random() * 100 + "%";
+
+        heart.style.left =
+            Math.random() * 100 + "%";
+
         heart.style.top = "105%";
+
         heart.style.fontSize =
             Math.floor(Math.random() * 18 + 12) + "px";
+
         heart.style.opacity =
             Math.random() * 0.35 + 0.1;
+
         heart.style.pointerEvents = "none";
 
         const duration =
@@ -125,15 +321,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // Create hearts periodically
     setInterval(createHeart, 900);
 
 
-    /* -----------------------------------------
-       ADD HEART ANIMATION
-    ----------------------------------------- */
+    /* =========================================
+       HEART ANIMATION
+    ========================================= */
 
-    const heartStyle = document.createElement("style");
+    const heartStyle =
+        document.createElement("style");
 
     heartStyle.innerHTML = `
         @keyframes heartRise {
@@ -143,23 +339,28 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             25% {
-                transform: translateY(-25vh) translateX(15px)
+                transform: translateY(-25vh)
+                           translateX(15px)
                            rotate(15deg);
             }
 
             50% {
-                transform: translateY(-50vh) translateX(-15px)
+                transform: translateY(-50vh)
+                           translateX(-15px)
                            rotate(-15deg);
             }
 
             75% {
-                transform: translateY(-75vh) translateX(12px)
+                transform: translateY(-75vh)
+                           translateX(12px)
                            rotate(10deg);
             }
 
             100% {
-                transform: translateY(-125vh) translateX(-10px)
+                transform: translateY(-125vh)
+                           translateX(-10px)
                            rotate(-10deg);
+
                 opacity: 0;
             }
 
@@ -169,206 +370,39 @@ document.addEventListener("DOMContentLoaded", () => {
     document.head.appendChild(heartStyle);
 
 
-    /* -----------------------------------------
+    /* =========================================
        PHOTO PLACEHOLDER CLICK EFFECT
-    ----------------------------------------- */
+    ========================================= */
 
-    document.querySelectorAll(".photo-placeholder").forEach(photo => {
+    document.querySelectorAll(".photo-placeholder")
+        .forEach(photo => {
 
-        photo.addEventListener("click", () => {
+            photo.addEventListener("click", () => {
 
-            photo.style.transform = "scale(1.04)";
+                photo.style.transform =
+                    "scale(1.04)";
 
-            setTimeout(() => {
-                photo.style.transform = "";
-            }, 250);
+                setTimeout(() => {
+
+                    photo.style.transform = "";
+
+                }, 250);
+
+            });
 
         });
 
-    });
 
-
-    /* -----------------------------------------
-       CONSOLE MESSAGE ❤️
-    ----------------------------------------- */
+    /* =========================================
+       CONSOLE MESSAGE
+    ========================================= */
 
     console.log(
         "❤️ Welcome to La Luz Love Story."
     );
 
     console.log(
-        "Made with love for Cynthia — La Luz."
+        "Made with love for Umugwaneza — La Luz."
     );
 
 });
-/* =========================================================
-   UMUGWANEZA — ROMANTIC BIRTHDAY GATE
-   ========================================================= */
-
-const loveGate = document.getElementById("loveGate");
-const gateIntro = document.getElementById("gateIntro");
-const gateQuestion = document.getElementById("gateQuestion");
-const gateSuccess = document.getElementById("gateSuccess");
-
-const unlockButton = document.getElementById("unlockButton");
-const teaseMessage = document.getElementById("teaseMessage");
-
-const answerFeedback = document.getElementById("answerFeedback");
-const enterButton = document.getElementById("enterButton");
-
-let unlockAttempts = 0;
-let buttonMoving = false;
-
-
-/* PLAYFUL UNLOCK BUTTON */
-
-function moveUnlockButton() {
-
-    const moves = [
-        { x: 55, y: -10 },
-        { x: -50, y: 12 }
-    ];
-
-    const move = moves[Math.min(unlockAttempts - 1, moves.length - 1)];
-
-    unlockButton.style.transform =
-        `translate(${move.x}px, ${move.y}px)`;
-
-    unlockButton.classList.remove("teasing");
-
-    void unlockButton.offsetWidth;
-
-    unlockButton.classList.add("teasing");
-}
-
-
-/* DESKTOP + MOBILE BUTTON TRICK */
-
-if (unlockButton) {
-
-    unlockButton.addEventListener("pointerenter", function () {
-
-        if (unlockAttempts < 2 && !buttonMoving) {
-
-            buttonMoving = true;
-
-            unlockAttempts++;
-
-            moveUnlockButton();
-
-            if (unlockAttempts === 1) {
-
-                teaseMessage.textContent =
-                    "Hehe... not that easy 😏❤️";
-
-            } else {
-
-                teaseMessage.textContent =
-                    "Okay okay... one more try 😂❤️";
-            }
-
-            setTimeout(function () {
-                buttonMoving = false;
-            }, 350);
-        }
-
-    });
-
-
-    unlockButton.addEventListener("click", function () {
-
-        if (unlockAttempts < 2) {
-
-            unlockAttempts++;
-
-            moveUnlockButton();
-
-            teaseMessage.textContent =
-                "Nice try 😏 Try again...";
-
-            return;
-        }
-
-        gateIntro.classList.add("hidden");
-
-        gateQuestion.classList.remove("hidden");
-
-    });
-
-}
-
-
-/* RELATIONSHIP QUESTION */
-
-const answerButtons =
-    document.querySelectorAll(".answer-button");
-
-answerButtons.forEach(function (button) {
-
-    button.addEventListener("click", function () {
-
-        const answer = button.dataset.answer;
-
-
-        /* WRONG ANSWER */
-
-        if (answer === "wrong") {
-
-            answerFeedback.textContent =
-                "Hmmmmm... are you sure you're Umugwaneza? 😂❤️ Try again.";
-
-            button.animate(
-                [
-                    { transform: "translateX(-6px)" },
-                    { transform: "translateX(6px)" },
-                    { transform: "translateX(-4px)" },
-                    { transform: "translateX(4px)" },
-                    { transform: "translateX(0)" }
-                ],
-                {
-                    duration: 350,
-                    easing: "ease"
-                }
-            );
-
-            return;
-        }
-
-
-        /* CORRECT ANSWER */
-
-        answerFeedback.textContent =
-            "I knew you'd remember. ❤️";
-
-        setTimeout(function () {
-
-            gateQuestion.classList.add("hidden");
-
-            gateSuccess.classList.remove("hidden");
-
-        }, 700);
-
-    });
-
-});
-
-
-/* ENTER THE SURPRISE */
-
-if (enterButton) {
-
-    enterButton.addEventListener("click", function () {
-
-        loveGate.classList.add("gate-hidden");
-
-        document.body.classList.remove("gate-locked");
-
-        setTimeout(function () {
-
-            loveGate.remove();
-
-        }, 850);
-
-    });
-
-}
