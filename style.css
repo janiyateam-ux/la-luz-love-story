@@ -1,7 +1,7 @@
  /* =========================================================
-   UMUGWANEZA — LA LUZ LOVE STORY
-   COLOR THEME: BLACK • WHITE • PINK
-   ========================================================= */
+   LA LUZ LOVE STORY
+   LUXURY BLACK • WHITE • PINK DESIGN
+========================================================= */
 
 * {
     margin: 0;
@@ -15,9 +15,9 @@ html {
 
 body {
     font-family: Georgia, "Times New Roman", serif;
-    background: #ffffff;
-    color: #111111;
-    line-height: 1.7;
+    background: #000;
+    color: #fff;
+    line-height: 1.8;
     overflow-x: hidden;
 }
 
@@ -25,599 +25,73 @@ body.gate-locked {
     overflow: hidden;
 }
 
-/* =========================================================
-   GENERAL
-   ========================================================= */
-
-section {
-    position: relative;
-}
-
-.section {
-    padding: 100px 8%;
-}
-
-.section-title {
-    text-align: center;
-    font-size: clamp(35px, 5vw, 60px);
-    margin-bottom: 50px;
-    color: #111111;
-}
-
-.section-title span {
-    color: #e91e63;
-}
-
-p {
-    font-size: 18px;
-}
-
-a {
-    text-decoration: none;
-}
 
 /* =========================================================
-   HERO
-   ========================================================= */
-
-.hero {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 40px 20px;
-    position: relative;
-    overflow: hidden;
-
-    background:
-        radial-gradient(circle at 50% 40%, rgba(233, 30, 99, 0.22), transparent 35%),
-        linear-gradient(135deg, #000000, #111111 55%, #1b1b1b);
-    color: white;
-}
-
-.hero-content {
-    max-width: 900px;
-    position: relative;
-    z-index: 2;
-}
-
-.small-title {
-    color: #ff8fb8;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    font-size: 14px;
-    margin-bottom: 20px;
-}
-
-.hero h1 {
-    font-size: clamp(55px, 10vw, 120px);
-    line-height: 1;
-    font-weight: normal;
-    margin-bottom: 30px;
-}
-
-.hero h1 span {
-    color: #ff4f91;
-}
-
-.hero p:not(.small-title) {
-    max-width: 700px;
-    margin: 0 auto 35px;
-    color: #ffffff;
-    font-size: clamp(17px, 2vw, 21px);
-}
-
-.love-button {
-    display: inline-block;
-    padding: 15px 35px;
-    border-radius: 50px;
-    background: #e91e63;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    transition: 0.3s ease;
-    box-shadow: 0 10px 35px rgba(233, 30, 99, 0.35);
-}
-
-.love-button:hover {
-    background: #ff4f91;
-    transform: translateY(-4px);
-    box-shadow: 0 15px 45px rgba(233, 30, 99, 0.5);
-}
-
-/* =========================================================
-   FLOATING HEARTS
-   ========================================================= */
-
-.hearts {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.heart {
-    position: absolute;
-    color: #ff4f91;
-    opacity: 0.45;
-    animation: floatHeart 8s linear infinite;
-}
-
-@keyframes floatHeart {
-    0% {
-        transform: translateY(100vh) scale(0.5) rotate(0deg);
-        opacity: 0;
-    }
-
-    15% {
-        opacity: 0.5;
-    }
-
-    85% {
-        opacity: 0.5;
-    }
-
-    100% {
-        transform: translateY(-120px) scale(1.2) rotate(25deg);
-        opacity: 0;
-    }
-}
-
-/* =========================================================
-   STORY
-   ========================================================= */
-
-#story {
-    background: #ffffff;
-}
-
-.story-container {
-    max-width: 1000px;
-    margin: auto;
-}
-
-.story-card {
-    background: #000000;
-    color: #ffffff;
-    border-radius: 25px;
-    padding: 45px;
-    margin-bottom: 30px;
-    border-left: 5px solid #e91e63;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
-    transition: 0.4s ease;
-}
-
-.story-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 60px rgba(233, 30, 99, 0.18);
-}
-
-.story-card h3 {
-    color: #ff4f91;
-    font-size: 30px;
-    margin-bottom: 15px;
-}
-
-.story-card p {
-    color: #eeeeee;
-}
-
-/* =========================================================
-   LOVE LETTER
-   ========================================================= */
-
-.love-letter {
-    background:
-        radial-gradient(circle at 20% 20%, rgba(233, 30, 99, 0.15), transparent 30%),
-        #050505;
-    color: #ffffff;
-}
-
-.letter-container {
-    max-width: 900px;
-    margin: auto;
-}
-
-.letter-container h2 {
-    text-align: center;
-    font-size: clamp(40px, 6vw, 70px);
-    color: #ff4f91;
-    margin-bottom: 50px;
-}
-
-.letter-container p {
-    color: #eeeeee;
-    margin-bottom: 25px;
-    font-size: 19px;
-}
-
-.letter-container strong {
-    color: #ff4f91;
-}
-
-/* =========================================================
-   REASONS I LOVE YOU
-   ========================================================= */
-
-#reasons {
-    background: #ffffff;
-}
-
-.reasons-grid {
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
-.reason-card {
-    background: #000000;
-    color: #ffffff;
-    padding: 35px 25px;
-    border-radius: 22px;
-    text-align: center;
-    border-bottom: 4px solid #e91e63;
-    transition: 0.4s ease;
-}
-
-.reason-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 45px rgba(233, 30, 99, 0.2);
-}
-
-.reason-card h3 {
-    color: #ff4f91;
-    margin: 15px 0;
-    font-size: 25px;
-}
-
-.reason-card p {
-    color: #dddddd;
-    font-size: 16px;
-}
-
-/* =========================================================
-   PHOTO GALLERY
-   ========================================================= */
-
-.gallery {
-    background: #000000;
-}
-
-.gallery .section-title {
-    color: #ffffff;
-}
-
-.gallery-grid {
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.photo-placeholder {
-    min-height: 280px;
-    border: 2px solid #e91e63;
-    border-radius: 20px;
-    background:
-        linear-gradient(rgba(233, 30, 99, 0.08), rgba(233, 30, 99, 0.08)),
-        #111111;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #ffffff;
-    font-size: 20px;
-    transition: 0.4s ease;
-    box-shadow: inset 0 0 30px rgba(233, 30, 99, 0.08);
-}
-
-.photo-placeholder:hover {
-    transform: scale(1.03);
-    border-color: #ff8fb8;
-    box-shadow: 0 15px 40px rgba(233, 30, 99, 0.25);
-}
-
-.photo-placeholder span {
-    color: #ff4f91;
-}
-
-/* =========================================================
-   TIMELINE
-   ========================================================= */
-
-.timeline {
-    background: #ffffff;
-}
-
-.timeline-container {
-    max-width: 900px;
-    margin: auto;
-    position: relative;
-}
-
-.timeline-container::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    background: #e91e63;
-    transform: translateX(-50%);
-}
-
-.timeline-item {
-    width: 50%;
-    padding: 25px 40px;
-    position: relative;
-}
-
-.timeline-item:nth-child(odd) {
-    left: 0;
-    text-align: right;
-}
-
-.timeline-item:nth-child(even) {
-    left: 50%;
-}
-
-.timeline-item::after {
-    content: "❤️";
-    position: absolute;
-    top: 30px;
-    right: -14px;
-    font-size: 20px;
-    background: #ffffff;
-}
-
-.timeline-item:nth-child(even)::after {
-    left: -14px;
-    right: auto;
-}
-
-.timeline-item h3 {
-    color: #e91e63;
-    font-size: 28px;
-}
-
-.timeline-item p {
-    color: #333333;
-}
-
-/* =========================================================
-   FINAL LOVE SECTION
-   ========================================================= */
-
-.final-section {
-    min-height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 80px 20px;
-
-    background:
-        radial-gradient(circle at center, rgba(233, 30, 99, 0.22), transparent 40%),
-        #000000;
-    color: #ffffff;
-}
-
-.final-content {
-    max-width: 850px;
-}
-
-.final-content h2 {
-    font-size: clamp(50px, 8vw, 100px);
-    color: #ff4f91;
-    margin-bottom: 30px;
-}
-
-.final-content p {
-    color: #ffffff;
-    font-size: 22px;
-    margin-bottom: 20px;
-}
-
-.final-content strong {
-    color: #ff4f91;
-}
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-footer {
-    background: #000000;
-    color: #ffffff;
-    text-align: center;
-    padding: 35px 20px;
-    border-top: 1px solid #e91e63;
-}
-
-footer p {
-    color: #dddddd;
-    font-size: 15px;
-}
-
-footer span {
-    color: #ff4f91;
-}
-
-/* =========================================================
-   LOVE GATE
-   ========================================================= */
+   ROMANTIC BIRTHDAY GATE
+========================================================= */
 
 .love-gate {
     position: fixed;
     inset: 0;
-    z-index: 9999;
+    z-index: 99999;
 
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
     padding: 25px;
 
     background:
-        radial-gradient(circle at center, rgba(233, 30, 99, 0.18), transparent 45%),
-        #000000;
+        radial-gradient(circle at 50% 20%, rgba(255, 20, 147, 0.18), transparent 35%),
+        radial-gradient(circle at 20% 80%, rgba(255, 105, 180, 0.10), transparent 30%),
+        #000;
+
+    overflow: hidden;
 
     transition:
         opacity 0.8s ease,
         visibility 0.8s ease;
 }
 
-.love-gate.gate-hidden {
-    opacity: 0;
-    visibility: hidden;
+.love-gate::before {
+    content: "";
+    position: absolute;
+    inset: 20px;
+
+    border: 1px solid rgba(255, 105, 180, 0.25);
+
     pointer-events: none;
 }
 
 .gate-card {
-    width: min(680px, 100%);
-    padding: 55px 35px;
+    position: relative;
+    z-index: 2;
+
+    width: min(650px, 100%);
+
+    padding: 55px 40px;
 
     text-align: center;
 
-    background: #ffffff;
-    border: 2px solid #e91e63;
-    border-radius: 30px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 20, 147, 0.04)
+        );
+
+    border: 1px solid rgba(255, 105, 180, 0.35);
 
     box-shadow:
-        0 0 50px rgba(233, 30, 99, 0.18),
-        0 25px 80px rgba(0, 0, 0, 0.6);
+        0 0 60px rgba(255, 20, 147, 0.12),
+        inset 0 0 40px rgba(255, 255, 255, 0.02);
 
-    animation: gateCardIn 0.8s ease;
+    backdrop-filter: blur(15px);
+
+    animation: gateAppear 1s ease forwards;
 }
 
-.gate-warning {
-    color: #e91e63;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    font-size: 13px;
-    letter-spacing: 4px;
-    margin-bottom: 25px;
-}
-
-.gate-lock {
-    font-size: 55px;
-    margin-bottom: 15px;
-}
-
-.gate-card h1 {
-    color: #111111;
-    font-size: clamp(34px, 6vw, 58px);
-    line-height: 1.1;
-    margin-bottom: 20px;
-}
-
-.gate-card h2 {
-    color: #111111;
-    font-size: 42px;
-    margin-bottom: 20px;
-}
-
-.gate-card p {
-    color: #555555;
-    font-size: 18px;
-}
-
-.gate-small-title {
-    color: #e91e63 !important;
-    font-family: Arial, sans-serif;
-    font-size: 13px !important;
-    letter-spacing: 4px;
-    font-weight: bold;
-}
-
-.unlock-button {
-    position: relative;
-
-    border: none;
-    cursor: pointer;
-
-    margin-top: 25px;
-    padding: 16px 32px;
-
-    border-radius: 50px;
-
-    background: #000000;
-    color: #ffffff;
-
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-
-    transition:
-        transform 0.25s ease,
-        background 0.3s ease,
-        box-shadow 0.3s ease;
-
-    box-shadow: 0 10px 30px rgba(233, 30, 99, 0.25);
-}
-
-.unlock-button:hover {
-    background: #e91e63;
-    box-shadow: 0 15px 40px rgba(233, 30, 99, 0.35);
-}
-
-.tease-message,
-.answer-feedback {
-    min-height: 25px;
-    margin-top: 15px;
-    color: #e91e63 !important;
-    font-family: Arial, sans-serif;
-    font-size: 14px !important;
-}
-
-.answer-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-top: 30px;
-}
-
-.answer-button {
-    border: 2px solid #e91e63;
-    background: #ffffff;
-    color: #111111;
-
-    padding: 15px 10px;
-    border-radius: 15px;
-
-    cursor: pointer;
-
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-
-    transition: 0.25s ease;
-}
-
-.answer-button:hover {
-    background: #e91e63;
-    color: #ffffff;
-    transform: translateY(-4px);
-}
-
-.success-heart {
-    font-size: 75px;
-    animation: heartbeat 1.5s infinite;
-}
-
-.hidden {
-    display: none !important;
-}
-
-/* =========================================================
-   ANIMATIONS
-   ========================================================= */
-
-@keyframes gateCardIn {
+@keyframes gateAppear {
     from {
         opacity: 0;
         transform: translateY(25px) scale(0.97);
@@ -629,94 +103,924 @@ footer span {
     }
 }
 
-@keyframes heartbeat {
-    0%,
-    100% {
+.gate-warning {
+    display: inline-block;
+
+    margin-bottom: 25px;
+    padding: 8px 18px;
+
+    border: 1px solid #ff69b4;
+
+    color: #ff69b4;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.gate-lock {
+    margin-bottom: 20px;
+
+    font-size: 55px;
+
+    animation: lockPulse 2s ease-in-out infinite;
+}
+
+@keyframes lockPulse {
+    0%, 100% {
         transform: scale(1);
     }
 
     50% {
-        transform: scale(1.18);
+        transform: scale(1.08);
     }
 }
+
+.gate-card h1 {
+    margin-bottom: 20px;
+
+    color: #fff;
+
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.2;
+    font-weight: normal;
+}
+
+.gate-card h2 {
+    margin-bottom: 15px;
+
+    color: #fff;
+
+    font-size: clamp(28px, 5vw, 42px);
+    line-height: 1.25;
+    font-weight: normal;
+}
+
+.gate-card p {
+    margin-bottom: 25px;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+.gate-small-title {
+    color: #ff69b4 !important;
+
+    font-size: 12px !important;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+.unlock-button {
+    position: relative;
+
+    display: inline-block;
+
+    padding: 15px 32px;
+
+    border: 1px solid #ff69b4;
+    border-radius: 50px;
+
+    background: #ff1493;
+    color: #fff;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 35px rgba(255, 20, 147, 0.25);
+
+    transition:
+        transform 0.35s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.unlock-button:hover {
+    background: #ff69b4;
+
+    box-shadow:
+        0 15px 45px rgba(255, 20, 147, 0.4);
+}
+
+.unlock-button.teasing {
+    animation: playfulButton 0.35s ease;
+}
+
+@keyframes playfulButton {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(8px, -5px) rotate(2deg);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.tease-message {
+    min-height: 30px;
+
+    margin-top: 18px !important;
+    margin-bottom: 0 !important;
+
+    color: #ff69b4 !important;
+
+    font-size: 13px !important;
+}
+
+.answer-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+
+.answer-button {
+    padding: 15px;
+
+    border: 1px solid rgba(255, 105, 180, 0.5);
+
+    background: rgba(255, 255, 255, 0.04);
+    color: #fff;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.answer-button:hover {
+    background: #ff1493;
+
+    border-color: #ff1493;
+
+    transform: translateY(-3px);
+}
+
+.answer-feedback {
+    min-height: 30px;
+
+    margin-top: 20px !important;
+
+    color: #ff69b4 !important;
+
+    font-weight: bold;
+}
+
+.success-heart {
+    margin-bottom: 15px;
+
+    font-size: 70px;
+
+    animation: successHeart 1.2s ease-in-out infinite;
+}
+
+@keyframes successHeart {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.gate-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 
 /* =========================================================
-   MOBILE
-   ========================================================= */
+   FLOATING HEARTS
+========================================================= */
 
-@media (max-width: 900px) {
-    .reasons-grid {
-        grid-template-columns: repeat(2, 1fr);
+.hearts {
+    position: fixed;
+    inset: 0;
+
+    z-index: 5;
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 80px 25px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 20, 147, 0.14),
+            transparent 45%
+        ),
+        #000;
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.small-title {
+    margin-bottom: 20px;
+
+    color: #ff69b4;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin-bottom: 25px;
+
+    font-size: clamp(50px, 10vw, 100px);
+    font-weight: normal;
+    line-height: 1;
+
+    color: #fff;
+}
+
+.hero h1 span {
+    color: #ff69b4;
+}
+
+.subtitle {
+    max-width: 650px;
+
+    margin: 0 auto 35px;
+
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 18px;
+}
+
+.love-button {
+    display: inline-block;
+
+    padding: 14px 30px;
+
+    border: 1px solid #ff69b4;
+    border-radius: 50px;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+
+    transition: 0.3s ease;
+}
+
+.love-button:hover {
+    background: #ff1493;
+
+    border-color: #ff1493;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+.section {
+    position: relative;
+
+    padding: 120px 25px;
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+.section-label {
+    margin-bottom: 12px;
+
+    color: #ff69b4;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+.section h2,
+.gallery-section h2 {
+    margin-bottom: 50px;
+
+    font-size: clamp(35px, 6vw, 60px);
+    font-weight: normal;
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   STORY
+========================================================= */
+
+.story-card {
+    display: grid;
+
+    grid-template-columns: 150px 1fr;
+
+    gap: 40px;
+
+    margin-bottom: 35px;
+
+    padding: 45px;
+
+    text-align: left;
+
+    background: #080808;
+
+    border: 1px solid rgba(255, 105, 180, 0.2);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.story-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(255, 105, 180, 0.6);
+}
+
+.story-year {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.story-year span {
+    color: #ff69b4;
+
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.story-text h3 {
+    margin-bottom: 15px;
+
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.story-text p {
+    margin-bottom: 18px;
+
+    color: rgba(255, 255, 255, 0.68);
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================================================
+   LOVE LETTER
+========================================================= */
+
+.letter-section {
+    padding: 130px 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #050505,
+            #110006,
+            #050505
+        );
+}
+
+.letter {
+    max-width: 800px;
+
+    margin: auto;
+
+    padding: 70px 60px;
+
+    background: #fff;
+
+    color: #111;
+
+    box-shadow:
+        0 30px 100px rgba(255, 20, 147, 0.12);
+}
+
+.letter .section-label {
+    color: #d41472;
+}
+
+.letter h2 {
+    margin-bottom: 40px;
+
+    color: #111;
+
+    font-size: clamp(38px, 6vw, 60px);
+    font-weight: normal;
+}
+
+.letter p {
+    margin-bottom: 25px;
+
+    font-size: 18px;
+}
+
+.letter .signature {
+    margin-top: 45px;
+
+    color: #d41472;
+
+    font-style: italic;
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   REASONS
+========================================================= */
+
+.reasons {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.reason {
+    padding: 40px 25px;
+
+    background: #080808;
+
+    border: 1px solid rgba(255, 105, 180, 0.2);
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.reason:hover {
+    transform: translateY(-8px);
+
+    border-color: #ff69b4;
+}
+
+.reason-icon {
+    margin-bottom: 20px;
+
+    font-size: 40px;
+}
+
+.reason h3 {
+    margin-bottom: 15px;
+
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.reason p {
+    color: rgba(255, 255, 255, 0.65);
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery-section {
+    padding: 120px 25px;
+
+    text-align: center;
+
+    background: #050505;
+}
+
+.gallery-intro {
+    max-width: 600px;
+
+    margin: -20px auto 50px;
+
+    color: rgba(255, 255, 255, 0.6);
+
+    font-family: Arial, sans-serif;
+}
+
+.gallery {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.photo-placeholder {
+    min-height: 300px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    border: 1px solid rgba(255, 105, 180, 0.25);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 20, 147, 0.08),
+            transparent 65%
+        );
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.photo-placeholder:hover {
+    transform: translateY(-6px);
+
+    border-color: #ff69b4;
+}
+
+.photo-placeholder span {
+    margin-bottom: 15px;
+
+    font-size: 45px;
+}
+
+.photo-placeholder p {
+    color: rgba(255, 255, 255, 0.65);
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline {
+    max-width: 850px;
+
+    margin: auto;
+
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+
+    left: 50%;
+
+    width: 1px;
+
+    background: rgba(255, 105, 180, 0.35);
+
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+
+    width: 50%;
+
+    padding: 30px 45px;
+
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    margin-left: 50%;
+
+    text-align: left;
+}
+
+.timeline-item > span {
+    color: #ff69b4;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.timeline-item h3 {
+    margin: 8px 0;
+
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.timeline-item p {
+    color: rgba(255, 255, 255, 0.6);
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   FINAL MESSAGE
+========================================================= */
+
+.final-section {
+    min-height: 90vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 100px 25px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 20, 147, 0.18),
+            transparent 50%
+        ),
+        #000;
+}
+
+.final-content {
+    max-width: 800px;
+}
+
+.big-heart {
+    margin-bottom: 25px;
+
+    font-size: 90px;
+
+    animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
     }
 
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+    50% {
+        transform: scale(1.12);
     }
 }
 
-@media (max-width: 600px) {
+.final-content h2 {
+    margin-bottom: 30px;
 
-    .section {
-        padding: 75px 20px;
-    }
+    font-size: clamp(45px, 8vw, 80px);
+    font-weight: normal;
+}
 
-    .hero {
-        padding: 30px 18px;
-    }
+.final-content p {
+    margin-bottom: 15px;
 
-    .hero h1 {
-        font-size: 55px;
-    }
+    color: rgba(255, 255, 255, 0.75);
 
-    .story-card {
-        padding: 30px 22px;
-    }
+    font-size: 20px;
+}
 
-    .reasons-grid {
-        grid-template-columns: 1fr;
-    }
+.final-content h3 {
+    margin-top: 35px;
 
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
+    color: #ff69b4;
 
-    .photo-placeholder {
-        min-height: 230px;
-    }
+    font-size: 30px;
+    font-weight: normal;
+}
 
-    .timeline-container::before {
-        left: 15px;
-    }
+.final-content .forever {
+    margin-top: 15px;
 
-    .timeline-item,
-    .timeline-item:nth-child(even),
-    .timeline-item:nth-child(odd) {
-        width: 100%;
-        left: 0;
-        text-align: left;
-        padding-left: 50px;
-        padding-right: 10px;
-    }
+    color: #fff;
 
-    .timeline-item::after,
-    .timeline-item:nth-child(even)::after {
-        left: 4px;
-        right: auto;
-    }
+    font-size: 14px;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 45px 25px;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(255, 105, 180, 0.15);
+
+    background: #000;
+}
+
+footer p {
+    margin: 5px;
+
+    color: rgba(255, 255, 255, 0.45);
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 800px) {
 
     .gate-card {
-        padding: 40px 22px;
+        padding: 40px 25px;
     }
 
     .gate-card h1 {
-        font-size: 38px;
-    }
-
-    .gate-card h2 {
-        font-size: 32px;
+        font-size: 30px;
     }
 
     .answer-grid {
         grid-template-columns: 1fr;
     }
+
+    .story-card {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+
+        padding: 30px;
+    }
+
+    .story-year {
+        justify-content: flex-start;
+    }
+
+    .reasons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .timeline::before {
+        left: 10px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        width: 100%;
+
+        margin-left: 0;
+
+        padding: 30px 20px 30px 40px;
+
+        text-align: left;
+    }
+
+    .letter {
+        padding: 45px 30px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .love-gate {
+        padding: 15px;
+    }
+
+    .love-gate::before {
+        inset: 10px;
+    }
+
+    .gate-card {
+        padding: 35px 20px;
+    }
+
+    .gate-warning {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .gate-lock {
+        font-size: 45px;
+    }
+
+    .gate-card h1 {
+        font-size: 25px;
+    }
+
+    .gate-card h2 {
+        font-size: 27px;
+    }
+
+    .gate-card p {
+        font-size: 14px;
+    }
+
+    .unlock-button {
+        padding: 13px 24px;
+
+        font-size: 13px;
+    }
+
+    .reasons {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-placeholder {
+        min-height: 250px;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .section,
+    .gallery-section,
+    .letter-section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .letter {
+        padding: 35px 22px;
+    }
+
+    .letter p {
+        font-size: 16px;
+    }
+
 }
