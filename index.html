@@ -9,7 +9,118 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+  <body class="gate-locked">
+
+    <!-- =====================================================
+         ROMANTIC BIRTHDAY GATE
+         ===================================================== -->
+
+    <div id="loveGate" class="love-gate">
+
+        <!-- FIRST SCREEN -->
+        <div class="gate-card" id="gateIntro">
+
+            <div class="gate-warning">
+                ⚠️ IMPORTANT MESSAGE
+            </div>
+
+            <div class="gate-lock">
+                🔒
+            </div>
+
+            <h1>
+                Umugwaneza, please don't open this unless you're ready…
+            </h1>
+
+            <p>
+                There is something I have been meaning to tell you.
+            </p>
+
+            <button
+                id="unlockButton"
+                class="unlock-button"
+                type="button">
+                🔒 Tap to unlock
+            </button>
+
+            <p id="teaseMessage" class="tease-message">
+                Go on... if you dare 😏
+            </p>
+
+        </div>
+
+
+        <!-- QUESTION SCREEN -->
+        <div class="gate-card hidden" id="gateQuestion">
+
+            <div class="gate-lock">
+                💌
+            </div>
+
+            <p class="gate-small-title">
+                ONE LITTLE QUESTION
+            </p>
+
+            <h2>
+                Before I let you in…
+            </h2>
+
+            <p>
+                Where did our story begin? ❤️
+            </p>
+
+            <div class="answer-grid">
+
+                <button class="answer-button" data-answer="wrong">
+                    A. 2022
+                </button>
+
+                <button class="answer-button" data-answer="correct">
+                    B. 2019
+                </button>
+
+                <button class="answer-button" data-answer="wrong">
+                    C. Yesterday 😏
+                </button>
+
+            </div>
+
+            <p id="answerFeedback" class="answer-feedback"></p>
+
+        </div>
+
+
+        <!-- SUCCESS SCREEN -->
+        <div class="gate-card hidden" id="gateSuccess">
+
+            <div class="success-heart">
+                ❤️
+            </div>
+
+            <p class="gate-small-title">
+                YOU GOT IT
+            </p>
+
+            <h1>
+                SURPRISE ❤️
+            </h1>
+
+            <p>
+                This entire little corner of the internet was made
+                especially for <strong>you</strong>, La Luz.
+            </p>
+
+            <button
+                id="enterButton"
+                class="unlock-button"
+                type="button">
+                Enter Your Surprise ❤️
+            </button>
+
+        </div>
+
+    </div>
+
 
     <!-- Floating hearts -->
     <div class="hearts">
